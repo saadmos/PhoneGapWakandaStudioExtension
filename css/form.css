@@ -1,0 +1,117 @@
+
+.phonegap-extension {
+      
+    position: relative;
+    margin: 0px;
+    color: #362701;
+    font-family: "Lucida grande", "Segoe UI", Tahoma, sans-serif;
+    font-size: 13px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.form-head{
+    
+   /* display: block;*/
+    position: relative;
+    margin: 0px;
+    height: 80px;
+    border-bottom: 2px solid #aaaaaa;
+   
+    /*-webkit-box-shadow: 0 0 9px #999;
+       -moz-box-shadow: 0 0 9px #999;
+            box-shadow: 0 0 9px #999;*/
+
+    font-weight: bold; 
+    background-image: url(../img/PhoneGap.png);
+    background-position: 10px 10px;
+    background-size: 192px 75px;
+    background-repeat: no-repeat;
+    background-color: ghostwhite;
+
+}
+
+    .form-head h1{
+    
+        font-size: 20px;
+        position : absolute;
+            left: 300px;
+            top: 25px;
+    }
+    
+    
+input[type='text'],select{
+    width: 350px;
+    height: 15px;
+    font-size: 13px;
+}
+input,textarea,select:focus{
+    outline: none;
+}
+
+
+
+.check_field{
+    
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('../img/error_check.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.check_field.ok {
+    background-position: -16px 0;
+}
+
+.check_field.error {
+    background-position: -32px 0;
+}
+
+.path-field{
+    position: relative;
+    display: inline-block;
+    border: 1px solid #C3C3C3;
+    padding-right: 20px;
+}
+
+.form-body{
+    padding-left: 20px;
+    
+    
+}
+
+
+
+    
+    .head-section{
+        
+        color : #4B7BB1;
+    }
+    
+    /*     */
+    
+input, textarea {
+    /*déjà en inline-block*/
+    
+    vertical-align: top;
+}
+
+textarea {
+    width: 350px;
+    height: 5em;
+}
+
+label:not(.pref) {
+    display: inline-block;
+    width: 220px;
+    margin-right: 10px;
+    vertical-align: top;
+    text-align: right;
+}
+
+.prefSet{
+    margin-left: 200px;
+}

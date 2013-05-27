@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+	xmlns:gap = "http://phonegap.com/ns/1.0"
+	id = appId
+	version = "1.0.0">
+	<name>appName</name>
+	
+	<description>
+		appDescription
+	 </description>
+
+	<author href="https://build.phonegap.com" email="">
+		appAuthor
+	</author>
+	
+	<preference name="phonegap-version" value=pg-version />
+	<preference name="orientation" value=pref-orientation />
+	<preference name="target-device" value=pref-targ-device />
+	<preference name="fullscreen" value=pref-fullscreen />
+	<preference name="android-minSdkVersion" value=pref-minSDK />
+	<preference name="android-maxSdkVersion" value=pref-maxSDK />
+	
+	<icon src="icon" />
+	<gap:splash src="splash" />
+	
+	<feature name="http://api.phonegap.com/1.0/device" />
+	
+</widget>

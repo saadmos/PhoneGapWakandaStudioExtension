@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Settings</title>
+        <link rel="stylesheet" type="text/css" href="css\form.css" />
+		<meta name="author" content="Saad Mousliki and Mohcine El Bouazzi">
+        <script type="text/javascript" src="js\form.js"></script>
+    </head>
+    <body onload="setProjectsList();" class="phonegap-extension" >
+		<img id='waiting' src='img\waiting1.gif' alt='' style='position:absolute;top:200px;right:230px;' />
+
+	<div id="body">
+        <!-- form head -->
+        <div class="form-head">
+            <h1>Settings for Packaging</h1>
+        </div>
+        <!-- form body -->
+        <div class="form-body" onkeyup="getSettings();">
+			
+            <div class="phonegap-settings">
+                <!-- Setup general settings -->
+                <h3 class="head-section">
+                    <label>Set your PhoneGap settings</label>
+                </h3>
+                <p><label>Select target project</label><select id="projectsList" ></select>
+                </p>
+                <p><label>Application Name</label><input type="text" name="applicationName" id="appName" onkeyup="detect('appName');" />
+                    <span id="appNameMessage" class=""></span> </p>		
+
+                <p> <label>Application Identifier</label><input type="text" name="applicationId" id="appId" class="appId" value="(exemple : com.yourcompany.yourapp)" onkeyup="detect('appId');" onfocus="this.value = this.value !== '(exemple : com.yourcompany.yourapp)' ? this.value : '';" onblur="this.value = this.value !== '' ? this.value : '(exemple : com.yourcompany.yourapp)';" />
+                    <span id="appIdMessage" class=""></span> </p>		
+
+                <p><label>Package location</label><input type="text" name="packageLocation" id="packageLocation"  onkeyup="detect('packageLocation');" />
+                    <img src="img/icon_search.png" alt="img"  onclick="getFolderPath('packageLocation');
+                return false;" />
+                    <span id="location" class=""></span></p>
+
+                <p> <label>Your server address</label><input type="text" name="serverIp" id="ip1" style="width:82px"  onkeyup="detect('ip1');" />
+                    <input type="text" name="serverIp" id="ip2" style="width:82px"  onkeyup="detect('ip2');" />
+                    <input type="text" name="serverIp" id="ip3" style="width:82px"  onkeyup="detect('ip3');" />
+                    <input type="text" name="serverIp" id="ip4" style="width:82px"  onkeyup="detect('ip4');" />
+                    <span id="ipMessage" class=""></span> </p>
+
+                <p><label>Port number</label><input type="text" name="port" id="port" style="width:82px;" onkeyup="detect('port');" />
+                    <span id="portMessage" class=""></span> </p>
+            </div>     
+                          
+
+            <!-- Setup preferences -->
+            
+            <h3 class="head-section"><label>Set your PhoneGap preferences</label></h3>
+            <p class="prefSet"><input class="checkbox" type="checkbox" id="setPreference" onchange="setPreferences();">    <label class="pref">Set preferences</label></p>
+            <div class="phonegap-preferences" id="pref-form" hidden="">    
+                <p><label>Author</label><input type="text" name="author" id="author"   class="dis"  onkeyup="detect('author');" />
+                    <span id="authorMessage" class=""></span></p>
+
+                <p><label>Description</label><textarea name="description" id="des"   class="dis" style="height:60px;width:350px" onkeyup="detect('des');"></textarea>
+                    <span id="descMessage" class=""></span></p>
+
+                <p><label>Application icon</label><input type="text" name="icon" id="icon"   class="dis" onkeyup="detect('icon');" />
+                    <img src="img/icon_search.png" alt="img"  onclick="getFilePath('icon');
+                return false;" />
+                    <span id="iconPathMessage" class=""></span></p>
+
+                <p> <label>Application splash</label><input type="text" name="splash" id="splash"   class="dis" onkeyup="detect('splash');" />
+                    <img src="img/icon_search.png" alt="img" onclick="getFilePath('splash');" />
+                    <span id="splashPathMessage" class=""></span></p>
+
+                <p><label>Choose phoneGap API</label><input type="checkbox" name="api" value="camera"  class="dis" onkeyup="detect('splash');" />camera<br />
+                    <label></label><input type="checkbox" name="api" value="file"  class="dis"  onkeyup="detect('splash');" />file<br />
+                    <label></label><input type="checkbox" name="api" value="notification"  class="dis"  onkeyup="detect('splash');" />notification<br />
+                    <label></label><input type="checkbox" name="api" value="contacts"  class="dis"  onkeyup="detect('splash');" />contacts<br />
+                    <label></label><input type="checkbox" name="api" value="geolocalisation"  class="dis"  onkeyup="detect('splash');" />geolocalisation<br />
+                    <label></label><input type="checkbox" name="api" value="media"  class="dis"  onkeyup="detect('splash');" />media<br />
+                    <label></label><input type="checkbox" name="api" value="network"  class="dis"  onkeyup="detect('splash');" />network<br />
+                    <label></label><input type="checkbox" name="api" value="battery"  class="dis"  onkeyup="detect('splash');" />battery<br />
+                    <label></label><span id="splashPathMessage" class=""></span></p>
+
+                <p><label>PhoneGap version</label>
+                    <select id="phonegap-version"  class="dis" >
+                        <option>1.1.0</option>
+                        <option>1.2.0</option>
+                        <option>1.3.0</option>
+                        <option>1.4.1</option>
+                        <option>1.5.0</option>
+                        <option>1.6.1</option>
+                        <option>1.7.0</option>
+                        <option>1.8.1</option>
+                        <option>1.9.0</option>
+                        <option>2.0.0</option>
+                        <option>2.1.0</option>
+                        <option>2.2.0</option>
+                        <option>2.3.0</option>
+                    </select>
+                    <span id="splashPathMessage" class=""></span></p>
+
+                <p><label>Device orientation</label>
+                    <select id="device-orientation"  class="dis" >
+                        <option>default</option>
+                        <option>landscape</option>
+                        <option>portrait</option>
+                    </select>
+                    <span id="splashPathMessage" class=""></span></p>
+
+                <p><label>Target a Specific Device</label>
+                    <select id="device-target"  class="dis" >
+                        <option>universal</option>
+                        <option>tablet</option>
+                        <option>handset</option>
+                    </select>
+                    <span id="splashPathMessage" class=""></span></p>
+
+                <p><label>Fullscreen Mode</label>
+                    <select id="screen-mode"  class="dis" >
+                        <option>true</option>
+                        <option>false</option>
+                    </select>
+                    <span id="splashPathMessage" class=""></span></p>
+
+                <p><label>Minimum SDK Version</label>
+                    <select id="min-sdk-version"  class="dis"   >
+                        <option value="1">API Level 1</option>
+                        <option value="2">API Level 2</option>
+                        <option value="3">API Level 3</option>
+                        <option value="4">API Level 4</option>
+                        <option value="5">API Level 5</option>
+                        <option value="6">API Level 6</option>
+                        <option value="7">API Level 7</option>
+                        <option value="8">API Level 8</option>
+                        <option value="9">API Level 9</option>
+                        <option value="10">API Level 10</option>
+                        <option value="11">API Level 11</option>
+                        <option value="12">API Level 12</option>
+                        <option value="13">API Level 13</option>
+                        <option value="14">API Level 14</option>
+                        <option value="15">API Level 15</option>
+                        <option value="16">API Level 16</option>
+                        <option value="17">API Level 17</option>
+                    </select>
+                    <span id="splashPathMessage" class=""></span></p>
+
+                <p><label>Maximum SDK Version</label>
+                    <select id="max-sdk-version"  class="dis"   >
+                        <option value="17">API Level 17</option>
+                        <option value="16">API Level 16</option>
+                        <option value="15">API Level 15</option>
+                        <option value="14">API Level 14</option>
+                        <option value="13">API Level 13</option>
+                        <option value="12">API Level 12</option>
+                        <option value="11">API Level 11</option>
+                        <option value="10">API Level 10</option>
+                        <option value="9">API Level 9</option>
+                        <option value="8">API Level 8</option>
+                        <option value="7">API Level 7</option>
+                        <option value="6">API Level 6</option>
+                        <option value="5">API Level 5</option>
+                        <option value="4">API Level 4</option>
+                        <option value="3">API Level 3</option>
+                        <option value="2">API Level 2</option>
+                        <option value="1">API Level 1</option>  
+                    </select>
+                    <span id="splashPathMessage" class=""></span></p>
+                <br />
+            </div>
+			<br />
+		   <label></label><input type="button" name="button" id="button" disabled="" value="Package" style="height:25px; width:200px" onclick="packaging();" />
+		   <br />
+        </div>
+	</div>	
+    </body>
+</html>

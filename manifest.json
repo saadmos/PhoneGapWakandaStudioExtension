@@ -1,0 +1,30 @@
+{
+    "extension": 
+    {
+        "name": "to native app",
+        "version": "1.0.0",
+        "description": "to native mobile app",
+        "icon": "icon.png",
+        "senders": [
+                    {
+                        "location": "studioToolbar", 
+                        "icon": "icon.png",
+                        "actionName": "showDialog",
+						"tips": "to native app"
+                    }
+        ],
+        "actions": [
+                    {
+                        "name": "packaging",
+                        "title": "PhoneGap",
+                    },
+                    {
+                        "name": "showDialog",
+                        "title": "PhoneGap"
+                    }
+                    
+                    
+        ],
+        "lifetime": "application_lifetime"
+    }
+}
